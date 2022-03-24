@@ -7,13 +7,13 @@
     Try changing "table" to "view" below
 */
 
-{{ config(materialized='table') }}
+{%- set columns = adapter.get_columns_in_relation(this) -%}
 
 with source_data as (
 
     select 1 as id
     union all
-    select null as id
+    select null id
 
 )
 
