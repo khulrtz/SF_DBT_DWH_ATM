@@ -1,0 +1,1 @@
+{{ log('prueba', info=True) }}
