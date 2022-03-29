@@ -1,0 +1,1 @@
+SELECT * FROM SF_DBT_DWH_ATM.DBT_DEV.sources
