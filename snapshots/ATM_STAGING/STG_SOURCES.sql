@@ -1,1 +1,0 @@
-{{ gen_snapshots_staging() }}
