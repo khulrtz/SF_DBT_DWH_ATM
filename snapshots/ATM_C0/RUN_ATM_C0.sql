@@ -1,3 +1,1 @@
-{% snapshot T_C1_LIK_CUST_NATION %}{{config(unique_key='ID_CUST_NATION',)}}{{ pivotar('T_C1_LIK_CUST_NATION') }} {{ ref('CUSTOMER') }}{% endsnapshot %}
-{% snapshot T_C1_HUB_CUSTOMER %}{{config(unique_key='ID_CUSTOMER',)}}{{ pivotar('T_C1_HUB_CUSTOMER') }} {{ ref('CUSTOMER') }}{% endsnapshot %}
-{% snapshot T_C1_SAT_CUSTOMER %}{{config(unique_key='ID_CUSTOMER',)}}{{ pivotar('T_C1_SAT_CUSTOMER') }} {{ ref('CUSTOMER') }}{% endsnapshot %}
+gen_snapshots_runner()
