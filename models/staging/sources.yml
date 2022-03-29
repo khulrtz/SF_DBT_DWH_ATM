@@ -1,0 +1,22 @@
+version: 2
+
+sources:
+  - name: SDG_DV_TEST_INGEST
+    database: SNOWFLAKE_SAMPLE_DATA
+    schema: TPCH_SF100
+    tables:
+      - name: CUSTOMER
+      - name: LINEITEM
+      - name: NATION
+      - name: ORDERS
+      - name: PART
+      - name: PARTSUPP
+      - name: REGION
+      - name: SUPPLIER
+
+  - name: METADATA
+    database: SF_DBT_DWH_ATM
+    schema: DBT_DEV
+    tables:
+      - name: snapshots
+      - name: sources
