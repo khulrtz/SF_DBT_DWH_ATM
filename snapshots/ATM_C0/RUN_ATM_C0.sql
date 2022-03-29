@@ -1,1 +1,1 @@
-gen_snapshots_runner()
+{{ gen_snapshots_runner() }}
