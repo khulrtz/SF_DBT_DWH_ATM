@@ -1,5 +1,5 @@
 
-{%- macro pivotar(table_name) -%}
+{%- macro atm_c0_snapshot(table_name) -%}
 
 {%- set config_query -%}
     select 
