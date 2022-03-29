@@ -19,3 +19,4 @@ sources:
     schema: DBT_DEV
     tables:
       - name: snapshots
+      - name: sources
