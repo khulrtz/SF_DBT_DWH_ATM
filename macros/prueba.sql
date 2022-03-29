@@ -38,13 +38,7 @@
 {%- set col_ts_scd = col_ts_scd[0] -%}
 {%- set col_key_scd = col_key_scd[0] -%}
 
-    {{
-        config(
-            unique_key=col_key_scd,
-            strategy='timestamp',
-            updated_at=col_ts_scd
-        )
-    }}
+
 
    
 
