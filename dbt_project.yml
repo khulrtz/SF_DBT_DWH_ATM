@@ -38,9 +38,8 @@ models:
 
 snapshots:
   SF_DBT_DWH_ATM:
-    ATM_C0:
-      +target_schema: 'DBT_DEV'
-      +target_database: 'SF_DBT_DWH_ATM'
-      +strategy: timestamp
-      +updated_at: 'TS_LOADED_AT'
+    +target_schema: 'DBT_DEV'
+    +target_database: 'SF_DBT_DWH_ATM'
+    +strategy: timestamp
+    +updated_at: 'TS_LOADED_AT'
   

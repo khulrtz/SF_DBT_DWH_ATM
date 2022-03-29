@@ -3,7 +3,7 @@
     {%- set snapquery -%}
     select 
     snapshot
-    from {{ ref('STG_SNAPSHOTS') }}
+    from {{ ref('STG_SNAPSHOTS') }} where snapshot like '%NATION%' OR snapshot like '%CUSTOMER%'
     {%- endset -%}
 
     {%- set results = run_query(snapquery)  -%}
