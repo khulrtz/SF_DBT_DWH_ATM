@@ -1,5 +1,5 @@
 
-{%- macro pivotar(table_name='T_C1_SAT_CUSTOMER') -%}
+{%- macro pivotar(table_name) -%}
 
 {%- set config_query -%}
     select 
@@ -17,14 +17,14 @@
 
 {%- if execute -%}
     {%- set db_origen = config_results.columns[0].values() -%}
-    {%- set tb_origen = config_results.columns[1].values() -%}
+    {%- set tb_origen_B = config_results.columns[1].values() -%}
     {%- set db_destino = config_results.columns[2].values() -%}
     {%- set tb_destino = config_results.columns[3].values() -%}
     {%- set col_ts_scd = config_results.columns[4].values() -%}
     {%- set col_key_scd = config_results.columns[5].values() -%}
 {%- else -%}
     {%- set db_origen = [] -%}
-    {%- set tb_origen = [] -%}
+    {%- set tb_origen_B = [] -%}
     {%- set db_destino = [] -%}
     {%- set tb_destino = [] -%}
     {%- set col_ts_scd = [] -%}   
@@ -32,17 +32,11 @@
 {%- endif -%}
 
 {%- set db_origen = db_origen[0] -%}
-{%- set tb_origen = tb_origen[0] -%}
+{%- set tb_origen_B = tb_origen_B[0] -%}
 {%- set db_destino = db_destino[0] -%}
 {%- set tb_destino = tb_destino[0] -%}
 {%- set col_ts_scd = col_ts_scd[0] -%}
 {%- set col_key_scd = col_key_scd[0] -%}
-
-
-
-   
-
-
 
 {%- set values_query -%}
     select distinct
@@ -91,7 +85,7 @@ SELECT
  {# CAMPOS_CALCULADOS #}     
     {%- if tb_origen == 'CALCULADO' -%}
         {% if cl_origen == 'ORIGEN' %}
-            {%- set campo = db_origen  ~ literal('.') ~ tb_origen -%}
+            {%- set campo = literal("'") ~ db_origen  ~ literal('.') ~ tb_origen_B ~ literal("'") -%}
         {%- elif cl_origen == 'LOADED' -%}
              {%- set campo = dbt_utils.current_timestamp() -%}
         {%- endif -%} 
@@ -104,5 +98,6 @@ SELECT
     {%- endif -%}
     {{ campo }}
 {% endfor -%}
-FROM {{ ref('mapeos') }}
+FROM 
 {%- endmacro -%}
+

@@ -1,0 +1,1 @@
+{% snapshot T_C1_SAT_CUSTOMER%}{{config(unique_key='ID_CUSTOMER',)}}{{ pivotar('T_C1_SAT_CUSTOMER') }} {{ ref('CUSTOMER') }}{% endsnapshot %}
